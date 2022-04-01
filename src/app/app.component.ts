@@ -1,23 +1,21 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import CovidInfo from './covid-info.model';
+import DEFAULT_STATS_CHECKED from './config/default-stats-checked';
+import { StatsChecked } from './stats-checked.type';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'covid-tracker';
   rows = new MatTableDataSource<any>([]);
+  statsChecked = DEFAULT_STATS_CHECKED;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.http
-      .get('https://api.opencovid.ca/summary?date=01-09-2020')
-      .subscribe((observer: any) => {
-        this.rows = observer.summary;
-      });
+  ngOnInit() {}
+
+  updateStatsChecked(newStatsChecked: StatsChecked) {
+    this.statsChecked = newStatsChecked;
   }
 }

@@ -6,23 +6,63 @@
       <div class="flex gap-2">
         <div class="checkbox-container">
           <label for="new-cases">New Cases</label>
-          <input type="checkbox" id="new-cases" />
+          <input
+            type="checkbox"
+            id="new-cases"
+            name="cases"
+            [checked]="statsChecked.cases"
+            (change)="onStatsChanged($event)"
+          />
         </div>
         <div class="checkbox-container">
           <label for="cumulative-cases">Cumulative Cases</label>
-          <input type="checkbox" id="cumulative-cases" />
+          <input
+            type="checkbox"
+            id="cumulative-cases"
+            name="cumulativeCases"
+            [checked]="statsChecked.cumulativeCases"
+            (change)="onStatsChanged($event)"
+          />
         </div>
         <div class="checkbox-container">
-          <label for="deaths">Deaths</label>
-          <input type="checkbox" id="deaths" />
+          <label for="new-deaths">New Deaths</label>
+          <input
+            type="checkbox"
+            id="new-deaths"
+            name="deaths"
+            [checked]="statsChecked.deaths"
+            (change)="onStatsChanged($event)"
+          />
+        </div>
+        <div class="checkbox-container">
+          <label for="cumulative-deaths">Cumulative Deaths</label>
+          <input
+            type="checkbox"
+            id="cumulative-deaths"
+            name="cumulativeDeaths"
+            [checked]="statsChecked.cumulativeDeaths"
+            (change)="onStatsChanged($event)"
+          />
         </div>
         <div class="checkbox-container">
           <label for="new-recovered">New Recovered</label>
-          <input type="checkbox" id="new-recovered" />
+          <input
+            type="checkbox"
+            id="new-recovered"
+            name="recovered"
+            [checked]="statsChecked.recovered"
+            (change)="onStatsChanged($event)"
+          />
         </div>
         <div class="checkbox-container">
           <label for="cumulative-recovered">Cumulative Recovered</label>
-          <input type="checkbox" id="cumulative-recovered" />
+          <input
+            type="checkbox"
+            id="cumulative-recovered"
+            name="cumulativeRecovered"
+            [checked]="statsChecked.cumulativeRecovered"
+            (change)="onStatsChanged($event)"
+          />
         </div>
       </div>
     </div>

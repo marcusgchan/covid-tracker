@@ -1,7 +1,10 @@
 <main class="p-7">
-  <h1 class="text-indigo-400 text-5xl capitalize pb-2 m-0">covid tracker</h1>
+  <h1 class="text-indigo-400 text-5xl capitalize pb-2">covid tracker</h1>
   <section class="flex flex-col gap-2">
-    <app-filters></app-filters>
-    <app-table-section></app-table-section>
+    <app-filters
+      [statsChecked]="statsChecked"
+      (statsCheckedEvent)="updateStatsChecked($event)"
+    ></app-filters>
+    <app-table-section [statsChecked]="statsChecked"></app-table-section>
   </section>
 </main>
