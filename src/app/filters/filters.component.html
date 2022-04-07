@@ -5,64 +5,68 @@
       <h3 class="text-indigo-400 text-xl">Stat</h3>
       <div class="flex gap-2">
         <div class="checkbox-container">
-          <label for="new-cases">New Cases</label>
-          <input
+          <mat-checkbox
             type="checkbox"
             id="new-cases"
             name="cases"
             [checked]="statsChecked.cases"
             (change)="onStatsChanged($event)"
-          />
+          >
+            New Cases
+          </mat-checkbox>
         </div>
         <div class="checkbox-container">
-          <label for="cumulative-cases">Cumulative Cases</label>
-          <input
+          <mat-checkbox
             type="checkbox"
             id="cumulative-cases"
             name="cumulativeCases"
             [checked]="statsChecked.cumulativeCases"
             (change)="onStatsChanged($event)"
-          />
+          >
+            Cumulative Cases
+          </mat-checkbox>
         </div>
         <div class="checkbox-container">
-          <label for="new-deaths">New Deaths</label>
-          <input
+          <mat-checkbox
             type="checkbox"
             id="new-deaths"
             name="deaths"
             [checked]="statsChecked.deaths"
             (change)="onStatsChanged($event)"
-          />
+            >New Deaths</mat-checkbox
+          >
         </div>
         <div class="checkbox-container">
-          <label for="cumulative-deaths">Cumulative Deaths</label>
-          <input
+          <mat-checkbox
             type="checkbox"
             id="cumulative-deaths"
             name="cumulativeDeaths"
             [checked]="statsChecked.cumulativeDeaths"
             (change)="onStatsChanged($event)"
-          />
+          >
+            Cumulative Deaths
+          </mat-checkbox>
         </div>
         <div class="checkbox-container">
-          <label for="new-recovered">New Recovered</label>
-          <input
+          <mat-checkbox
             type="checkbox"
             id="new-recovered"
             name="recovered"
             [checked]="statsChecked.recovered"
             (change)="onStatsChanged($event)"
-          />
+            >New Recovered</mat-checkbox
+          >
         </div>
         <div class="checkbox-container">
-          <label for="cumulative-recovered">Cumulative Recovered</label>
-          <input
+          <mat-checkbox
             type="checkbox"
             id="cumulative-recovered"
             name="cumulativeRecovered"
             [checked]="statsChecked.cumulativeRecovered"
             (change)="onStatsChanged($event)"
-          />
+          >
+            Cumulative Recovered
+          </mat-checkbox>
         </div>
       </div>
     </div>
@@ -70,30 +74,108 @@
       <h3 class="text-indigo-400 text-xl">Location</h3>
       <div class="flex gap-2">
         <div class="checkbox-container">
-          <label for="federal">Federal</label>
-          <input type="checkbox" id="federal" />
+          <mat-checkbox
+            type="checkbox"
+            id="federal"
+            name="federal"
+            [checked]="locationsChecked.federal"
+            (change)="onLocationsChanged($event)"
+            >Federal</mat-checkbox
+          >
         </div>
         <div class="checkbox-container">
-          <label for="provincial">Provincial</label>
-          <input type="checkbox" id="provincial" />
+          <mat-checkbox
+            type="checkbox"
+            id="provincial"
+            name="provincial"
+            [checked]="locationsChecked.provincial"
+            (change)="onLocationsChanged($event)"
+          >
+            Provincial
+          </mat-checkbox>
         </div>
         <div class="checkbox-container">
-          <label for="regional">Regional</label>
-          <input type="checkbox" id="regional" />
+          <mat-checkbox
+            type="checkbox"
+            id="regional"
+            name="regional"
+            [checked]="locationsChecked.regional"
+            (change)="onLocationsChanged($event)"
+          >
+            Regional
+          </mat-checkbox>
         </div>
       </div>
     </div>
     <div class="py-2">
       <h3 class="text-indigo-400 text-xl">Time</h3>
-      <div class="flex gap-2">
-        <div class="checkbox-container">
-          <label for="start-date">Start Date</label>
-          <input type="date" id="start-date" />
-        </div>
-        <div class="checkbox-container">
-          <label for="end-date">End Date</label>
-          <input type="date" id="end-date" />
-        </div>
+      <div class="checkbox-container">
+        <mat-checkbox
+          type="checkbox"
+          id="multiple-days"
+          [(ngModel)]="isMultipleDaysChecked"
+        >
+          Multiple Days
+        </mat-checkbox>
+      </div>
+
+      <div class="py-2">
+        <!-- Date seleciton for single day -->
+        <mat-form-field
+          *ngIf="!isMultipleDaysChecked"
+          appearance="fill"
+          [formGroup]="singleDayFormGroup"
+        >
+          <mat-label>Enter a date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="day" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <!-- Date selection for multiple days -->
+        <mat-form-field
+          *ngIf="isMultipleDaysChecked"
+          appearance="fill"
+          [formGroup]="rangeFormGroup"
+        >
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="rangePicker">
+            <input
+              matStartDate
+              placeholder="Start date"
+              formControlName="start"
+            />
+            <input matEndDate placeholder="End date" formControlName="end" />
+          </mat-date-range-input>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="rangePicker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #rangePicker>
+            <mat-date-range-picker-actions>
+              <button mat-button matDateRangePickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" matDateRangePickerApply>
+                Apply
+              </button>
+            </mat-date-range-picker-actions>
+
+            <mat-error
+              *ngIf="
+                rangeFormGroup.controls['start'].hasError('matStartDateInvalid')
+              "
+              >Invalid start date</mat-error
+            >
+            <mat-error
+              *ngIf="
+                rangeFormGroup.controls['end'].hasError('matEndDateInvalid')
+              "
+              >Invalid end date</mat-error
+            >
+          </mat-date-range-picker>
+        </mat-form-field>
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import DEFAULT_LOCATION_CHECKED from './config/default-locations-checked';
 import DEFAULT_STATS_CHECKED from './config/default-stats-checked';
+import LocationsChecked from './locations-checked.type';
 import { StatsChecked } from './stats-checked.type';
 @Component({
   selector: 'app-root',
@@ -8,8 +9,9 @@ import { StatsChecked } from './stats-checked.type';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  rows = new MatTableDataSource<any>([]);
   statsChecked = DEFAULT_STATS_CHECKED;
+  locationsChecked = DEFAULT_LOCATION_CHECKED;
+  date = [new Date().toISOString().split('T')[0]];
 
   constructor() {}
 
@@ -17,5 +19,13 @@ export class AppComponent implements OnInit {
 
   updateStatsChecked(newStatsChecked: StatsChecked) {
     this.statsChecked = newStatsChecked;
+  }
+
+  updateLocationsChecked(newLocationsChecked: LocationsChecked) {
+    this.locationsChecked = newLocationsChecked;
+  }
+
+  updateDate(date: string[]) {
+    this.date = date;
   }
 }

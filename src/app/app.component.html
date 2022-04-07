@@ -1,10 +1,15 @@
-<main class="p-7">
+<main class="p-7 h-full">
   <h1 class="text-indigo-400 text-5xl capitalize pb-2">covid tracker</h1>
   <section class="flex flex-col gap-2">
     <app-filters
-      [statsChecked]="statsChecked"
       (statsCheckedEvent)="updateStatsChecked($event)"
+      (locationsCheckedEvent)="updateLocationsChecked($event)"
+      (dateEvent)="updateDate($event)"
     ></app-filters>
-    <app-table-section [statsChecked]="statsChecked"></app-table-section>
+    <app-table-section
+      [statsChecked]="statsChecked"
+      [locationsChecked]="locationsChecked"
+      [date]="date"
+    ></app-table-section>
   </section>
 </main>

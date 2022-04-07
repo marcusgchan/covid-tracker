@@ -9,6 +9,14 @@ import { FiltersComponent } from './filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [AppComponent, TableSectionComponent, FiltersComponent],
@@ -19,6 +27,14 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     MatTableModule,
     MatSortModule,
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    MatInputModule,
+    FormsModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

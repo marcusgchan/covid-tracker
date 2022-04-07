@@ -7,19 +7,23 @@ import { Injectable } from '@angular/core';
 export class CovidInfoService {
   constructor(private http: HttpClient) {}
 
-  getCovidProvincialInfo() {
+  getCovidProvincialInfo(date: string[]) {
     return this.http.get('https://api.opencovid.ca/summary?date=01-09-2020');
   }
 
-  getCovidFederalInfo() {
+  getCovidFederalInfo(date: string[]) {
     return this.http.get(
       'https://api.opencovid.ca/summary?loc=canada&date=01-09-2020'
     );
   }
 
-  getCovidRegionalInfo() {
+  getCovidRegionalInfo(date: string[]) {
     return this.http.get(
-      'https://api.opencovid.ca/summary?loc=hrdate=01-09-2020'
+      'https://api.opencovid.ca/summary?loc=hr&date=01-09-2020'
     );
+  }
+
+  private getLocationQueryString(date: string[]): string {
+    return '';
   }
 }
