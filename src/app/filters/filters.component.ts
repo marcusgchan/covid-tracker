@@ -16,6 +16,9 @@ export class FiltersComponent implements OnInit {
   locationsChecked = DEFAULT_LOCATIONS_CHECKED;
   @Output() locationsCheckedEvent = new EventEmitter();
 
+  minDate = new Date(2020, 0, 25);
+  maxDate = new Date(new Date().setDate(new Date().getDate() - 1)); // Day before today
+
   // Variables for date selection
   isMultipleDaysChecked = false;
   rangeFormGroup = new FormGroup({
