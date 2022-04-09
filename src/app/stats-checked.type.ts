@@ -1,4 +1,4 @@
-export type StatsChecked = {
+type StatsChecked = {
   cases: boolean;
   cumulativeCases: boolean;
   deaths: boolean;
@@ -7,3 +7,5 @@ export type StatsChecked = {
   cumulativeRecovered: boolean;
   [key: string]: boolean;
 };
+
+export default StatsChecked;

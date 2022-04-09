@@ -1,15 +1,16 @@
-<main class="p-7 h-full">
-  <h1 class="text-indigo-400 text-5xl capitalize pb-2">covid tracker</h1>
-  <section class="flex flex-col gap-2">
-    <app-filters
-      (statsCheckedEvent)="updateStatsChecked($event)"
-      (locationsCheckedEvent)="updateLocationsChecked($event)"
-      (dateEvent)="updateDate($event)"
-    ></app-filters>
-    <app-table-section
-      [statsChecked]="statsChecked"
-      [locationsChecked]="locationsChecked"
-      [date]="date"
-    ></app-table-section>
-  </section>
+<nav
+  class="flex justify-between items-center h-12 px-8 text-white uppercase tracking-wider"
+  style="background: #4fb0c6"
+>
+  <a class="nav-button">Covid Tracker</a>
+  <ul class="flex gap-3 items-center h-full">
+    <li class="nav-button"><a routerLink="/data-table">Data Table</a></li>
+    <li class="nav-button">
+      <a routerLink="/provincial-visualizer">Provicial Visualizer</a>
+    </li>
+    <li class="nav-button"><a>Saved Filters</a></li>
+  </ul>
+</nav>
+<main class="p-7">
+  <router-outlet></router-outlet>
 </main>

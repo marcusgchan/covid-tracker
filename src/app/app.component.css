@@ -1,0 +1,3 @@
+.nav-button {
+  @apply hover:text-custom-grey cursor-pointer;
+}

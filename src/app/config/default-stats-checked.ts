@@ -1,4 +1,4 @@
-import { StatsChecked } from '../stats-checked.type';
+import StatsChecked from '../stats-checked.type';
 
 const DEFAULT_STATS_CHECKED: StatsChecked = {
   cases: true,

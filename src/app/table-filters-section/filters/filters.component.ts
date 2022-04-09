@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { StatsChecked } from '../stats-checked.type';
-import DEFAULT_STATS_CHECKED from '../config/default-stats-checked';
-import DEFAULT_LOCATIONS_CHECKED from '../config/default-locations-checked';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import StatsChecked from '../../stats-checked.type';
+import DEFAULT_STATS_CHECKED from '../../config/default-stats-checked';
+import DEFAULT_LOCATIONS_CHECKED from '../../config/default-locations-checked';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
