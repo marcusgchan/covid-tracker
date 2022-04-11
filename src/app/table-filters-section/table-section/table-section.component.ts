@@ -47,6 +47,7 @@ export class TableSectionComponent implements OnInit, OnChanges {
       changes['locationsChecked'] &&
       !changes['locationsChecked']['firstChange'];
     const dateChanged = changes['date'] && !changes['date']['firstChange'];
+
     if (locationChanged || dateChanged) {
       this.getDataAndUpdateTable();
     }

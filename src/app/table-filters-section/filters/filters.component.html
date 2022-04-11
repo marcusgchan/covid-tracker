@@ -1,5 +1,5 @@
 <section>
-  <div class="bg-custom-grey p-3 rounded-lg w-fit text-white">
+  <div class="bg-custom-grey rounded-lg w-fit text-white">
     <h2 class="text-indigo-400 text-3xl">Filters</h2>
     <div class="py-2">
       <h3 class="text-green-400 text-xl">Stat</h3>
@@ -187,6 +187,12 @@
           </mat-date-range-picker>
         </mat-form-field>
       </div>
+      <button
+        class="border-2 border-green-400 border-solid p-2 hover:text-green-400"
+        (click)="onAddFilter()"
+      >
+        Save Filter
+      </button>
     </div>
   </div>
 </section>

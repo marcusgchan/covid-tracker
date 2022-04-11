@@ -1,16 +1,17 @@
-<nav
-  class="flex justify-between items-center h-12 px-8 text-white uppercase tracking-wider"
-  style="background: #4fb0c6"
->
-  <a class="nav-button">Covid Tracker</a>
-  <ul class="flex gap-3 items-center h-full">
-    <li class="nav-button"><a routerLink="/data-table">Data Table</a></li>
-    <li class="nav-button">
-      <a routerLink="/provincial-visualizer">Provicial Visualizer</a>
-    </li>
-    <li class="nav-button"><a>Saved Filters</a></li>
-  </ul>
-</nav>
-<main class="p-7">
-  <router-outlet></router-outlet>
+<main class="flex flex-col">
+  <nav
+    class="flex justify-between items-center h-12 px-8 text-white uppercase tracking-wider"
+    style="background: #4fb0c6"
+  >
+    <a class="nav-button">Covid Tracker</a>
+    <ul class="flex gap-3 items-center h-full">
+      <li class="nav-button"><a routerLink="/data-table">Data Table</a></li>
+      <li class="nav-button">
+        <a routerLink="/saved-filters">Saved Filters</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="p-4">
+    <router-outlet></router-outlet>
+  </div>
 </main>

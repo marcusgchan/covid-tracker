@@ -1,0 +1,19 @@
+GET https://218.selfip.net/apps/pkQqUtqBmA/collections/filters/documents/
+
+###
+
+POST https://218.selfip.net/apps/pkQqUtqBmA/collections/filters/documents/
+content-type: application/json
+
+{
+  "key": "filter6",
+  "data": {
+    "statsChecked": {"cumulativeCases": false, "deaths": true, "cumulativeDeaths": false, "recovered": true, "cumulativeRecovered": false},
+    "locationsChecked": { "federal": true, "provincial": true, "regional": false },
+    "dateRange": [ "2022-03-01", "2022-03-31" ]
+  }
+}
+
+###
+
+DELETE https://218.selfip.net/apps/pkQqUtqBmA/collections/filters/documents/1649648499945/

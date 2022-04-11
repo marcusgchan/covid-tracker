@@ -12,10 +12,17 @@
 
 html,
 body {
-  height: 100%;
-  background: #fafafa;
+  min-height: 100%;
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.ngx-charts {
+  fill: white;
+}
+
+.legend-title-text {
+  color: white;
 }

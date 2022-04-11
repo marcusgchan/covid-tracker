@@ -1,4 +1,4 @@
-<section class="flex flex-col gap-2">
+<section class="flex flex-col justify-items-stretch h-full">
   <app-filters
     (statsCheckedEvent)="updateStatsChecked($event)"
     (locationsCheckedEvent)="updateLocationsChecked($event)"
@@ -9,4 +9,5 @@
     [locationsChecked]="locationsChecked"
     [date]="date"
   ></app-table-section>
+  <app-graph [date]="date"></app-graph>
 </section>

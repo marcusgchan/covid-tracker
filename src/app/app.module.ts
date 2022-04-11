@@ -18,6 +18,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TableFiltersSectionComponent } from './table-filters-section/table-filters-section.component';
+import { GraphComponent } from './table-filters-section/graph/graph.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { SavedFiltersComponent } from './saved-filters/saved-filters.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { TableFiltersSectionComponent } from './table-filters-section/table-filt
     TableSectionComponent,
     FiltersComponent,
     TableFiltersSectionComponent,
+    GraphComponent,
+    SavedFiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { TableFiltersSectionComponent } from './table-filters-section/table-filt
     MatInputModule,
     FormsModule,
     MatCheckboxModule,
+    NgxChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

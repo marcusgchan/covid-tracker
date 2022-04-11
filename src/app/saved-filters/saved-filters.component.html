@@ -1,0 +1,111 @@
+<div class="grid grid-cols-3">
+  <ul
+    *ngFor="let filter of filters"
+    class="group relative flex flex-col p-2 border-solid border-2 border-orange-400"
+  >
+    <!-- Hover -->
+    <div
+      class="group-hover:visible invisible flex flex-col justify-center items-center absolute z-10 inset-0 bg-black opacity-80"
+    >
+      <div class="flex flex-col gap-3 text-white">
+        <button
+          class="p-2 border-solid border-2 border-green-400 hover:text-green-400"
+          (click)="onFilterLoad(filter)"
+          routerLink="/data-table"
+        >
+          Load
+        </button>
+        <button
+          class="p-2 border-solid border-2 border-red-400 hover:text-red-400"
+          (click)="onDeleteFilter(filter.key)"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <li class="flex flex-col gap-2 relative">
+      <h2 class="filtered-heading">Stats</h2>
+      <ul>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Cases:</h3>
+          <span class="filtered-value">{{
+            filter.data.statsChecked.cases
+          }}</span>
+        </li>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Deaths:</h3>
+          <span class="filtered-value">{{
+            filter.data.statsChecked.deaths
+          }}</span>
+        </li>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Recovered:</h3>
+          <span class="filtered-value">{{
+            filter.data.statsChecked.recovered
+          }}</span>
+        </li>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Cumulative Cases:</h3>
+          <span class="filtered-value">{{
+            filter.data.statsChecked.cumulativeCases
+          }}</span>
+        </li>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Cumulative Deaths:</h3>
+          <span class="filtered-value">{{
+            filter.data.statsChecked.cumulativeDeaths
+          }}</span>
+        </li>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Cumulative Recovered:</h3>
+          <span class="filtered-value">{{
+            filter.data.statsChecked.cumulativeRecovered
+          }}</span>
+        </li>
+      </ul>
+    </li>
+    <li class="flex flex-col gap-2">
+      <h2 class="filtered-heading">Location</h2>
+      <ul>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Federal:</h3>
+          <span class="filtered-value">{{
+            filter.data.locationsChecked.federal
+          }}</span>
+        </li>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Deaths:</h3>
+          <span class="filtered-value">{{
+            filter.data.locationsChecked.provincial
+          }}</span>
+        </li>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Recovered:</h3>
+          <span class="filtered-value">{{
+            filter.data.locationsChecked.regional
+          }}</span>
+        </li>
+      </ul>
+    </li>
+    <li class="flex flex-col gap-2">
+      <h2 class="filtered-heading">Time</h2>
+      <ul>
+        <li class="filtered-row">
+          <h3 class="filtered-label">Date:</h3>
+          <span
+            *ngIf="filter.data.dateRange.length === 1"
+            class="filtered-value"
+            >{{ filter.data.dateRange[0] }}</span
+          >
+          <span
+            *ngIf="filter.data.dateRange.length === 2"
+            class="filtered-value"
+            >{{ filter.data.dateRange[0] }} -
+            {{ filter.data.dateRange[1] }}</span
+          >
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

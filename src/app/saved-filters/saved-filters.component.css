@@ -1,0 +1,15 @@
+.filtered-row {
+  @apply flex gap-2;
+}
+
+.filtered-heading {
+  @apply text-3xl text-indigo-400;
+}
+
+.filtered-label {
+  @apply text-green-400;
+}
+
+.filtered-value {
+  @apply text-white;
+}

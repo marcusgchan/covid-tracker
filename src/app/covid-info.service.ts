@@ -72,31 +72,31 @@ export class CovidInfoService {
           for (let i = 0; i < fetchedData.length; i += dateRange) {
             // Get stats for cases
             const initialCumulativeCases =
-              data[i].cumulative_cases - data[i].cases;
+              fetchedData[i].cumulative_cases - fetchedData[i].cases;
             const lastCumulativeCases =
-              data[i + dateRange - 1].cumulative_cases;
+              fetchedData[i + dateRange - 1].cumulative_cases;
             const increaseInCumulativeCases =
               lastCumulativeCases - initialCumulativeCases;
 
             // Geet stats for deaths
             const initialCumulativeDeaths =
-              data[i].cumulative_deaths - data[i].deaths;
+              fetchedData[i].cumulative_deaths - fetchedData[i].deaths;
             const lastCumulativeDeaths =
-              data[i + dateRange - 1].cumulative_deaths;
+              fetchedData[i + dateRange - 1].cumulative_deaths;
             const increaseInCumulativeDeaths =
               lastCumulativeDeaths - initialCumulativeDeaths;
 
             // Get stats for recovered
-            // NOTE: Health region does not have recovered data
+            // NOTE: Health region does not have recovered fetchedData
             let initialCumulativeRecovered: number | undefined;
             let lastCumulativeRecovered: number | undefined;
             let increaseInCumulativeRecovered: number | undefined;
 
-            if (!data[i].health_region) {
+            if (!fetchedData[i].health_region) {
               initialCumulativeRecovered =
-                data[i].cumulative_recovered - data[i].recovered;
+                fetchedData[i].cumulative_recovered - fetchedData[i].recovered;
               lastCumulativeRecovered =
-                data[i + dateRange - 1].cumulative_recovered;
+                fetchedData[i + dateRange - 1].cumulative_recovered;
 
               if (lastCumulativeRecovered) {
                 increaseInCumulativeRecovered =
@@ -104,8 +104,8 @@ export class CovidInfoService {
               }
             }
             data.push({
-              province: data[i].province,
-              health_region: data[i].health_region,
+              province: fetchedData[i].province,
+              health_region: fetchedData[i].health_region,
               cases: increaseInCumulativeCases,
               cumulative_cases: lastCumulativeCases,
               deaths: increaseInCumulativeDeaths,
@@ -114,7 +114,6 @@ export class CovidInfoService {
               cumulative_recovered: lastCumulativeRecovered,
             });
           }
-
           return data;
         }
       })

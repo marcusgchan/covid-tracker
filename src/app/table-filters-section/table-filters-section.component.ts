@@ -5,8 +5,8 @@ import StatsChecked from '../stats-checked.type';
 import LocationsChecked from '../locations-checked.type';
 
 @Component({
-  selector: 'app-table-filters-seciton',
-  templateUrl: './table-filters-seciton.component.html',
+  selector: 'app-table-filters-section',
+  templateUrl: './table-filters-section.component.html',
   styleUrls: ['./table-filters-section.component.css'],
 })
 export class TableFiltersSectionComponent implements OnInit {
