@@ -4,7 +4,7 @@ import { TableFiltersSectionComponent } from './table-filters-section/table-filt
 import { SavedFiltersComponent } from './saved-filters/saved-filters.component';
 
 const routes: Routes = [
-  { path: 'data-table', component: TableFiltersSectionComponent },
+  { path: '', component: TableFiltersSectionComponent },
   { path: 'saved-filters', component: SavedFiltersComponent },
 ];
 
